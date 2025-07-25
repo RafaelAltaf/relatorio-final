@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relatório Final - Gestão 2025/1</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+            position: relative;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="20" cy="20" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="40" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="40" cy="80" r="1" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .header .subtitle {
+            font-size: 1.2em;
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+        }
+
+        .header .period {
+            font-size: 1em;
+            margin-top: 10px;
+            padding: 8px 16px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 20px;
+            display: inline-block;
+            position: relative;
+            z-index: 1;
+        }
+
+        .main-content {
+            padding: 40px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(52, 152, 219, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+        }
+
+        .stat-card:hover::before {
+            left: 100%;
+        }
+
+        .stat-number {
+            font-size: 3em;
+            font-weight: bold;
+            color: #3498db;
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            font-size: 1.1em;
+            color: #2c3e50;
+            font-weight: 600;
+        }
+
+        .achievements-section {
+            background: linear-gradient(135deg, #74b9ff 0%, #0984e3 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+        }
+
+        .achievements-title {
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .achievements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+        }
+
+        .achievement-item {
+            background: rgba(255,255,255,0.1);
+            padding: 15px;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .achievement-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .achievement-item:hover {
+            transform: translateY(-3px);
+            background: rgba(255,255,255,0.2);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+        }
+
+        .achievement-item:hover::before {
+            left: 100%;
+        }
+
+        .achievement-place {
+            font-weight: bold;
+            font-size: 1.1em;
+            margin-bottom: 5px;
+        }
+
+        .activities-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .activity-card {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .activity-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(52, 152, 219, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .activity-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+            background: linear-gradient(135deg, #f8f9fa 0%, #e3f2fd 100%);
+        }
+
+        .activity-card:hover::before {
+            left: 100%;
+        }
+
+        .activity-card:active {
+            transform: translateY(-5px);
+        }
+
+        .activity-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .activity-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-size: 1.2em;
+            color: white;
+        }
+
+        .activity-title {
+            font-size: 1.3em;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+
+        .activity-count {
+            font-size: 2em;
+            font-weight: bold;
+            color: #3498db;
+            margin-bottom: 10px;
+        }
+
+        .activity-description {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .footer {
+            background: #2c3e50;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .leader-info {
+            font-size: 1.1em;
+        }
+
+        .report-date {
+            font-style: italic;
+            opacity: 0.8;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .activities-section {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Relatório Final da Gestão</h1>
+            <div class="subtitle">Capítulo Belo Horizonte - Ordem DeMolay</div>
+            <div class="period">Janeiro a Junho de 2025</div>
+        </div>
+
+        <div class="main-content">
+            <!-- Estatísticas Principais -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">49</div>
+                    <div class="stat-label">Atividades Realizadas</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">17</div>
+                    <div class="stat-label">Novos Iniciados</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">13</div>
+                    <div class="stat-label">Ações Filantrópicas</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">5</div>
+                    <div class="stat-label">Cerimônias</div>
+                </div>
+            </div>
+
+            <!-- Conquistas e Destaques -->
+            <div class="achievements-section">
+                <div class="achievements-title">🏆 Conquistas e Destaques</div>
+                <div class="achievements-grid">
+                    <div class="achievement-item">
+                        <div class="achievement-place">🥇 1º Lugar</div>
+                        <div>Certificado de Referência Nacional</div>
+                    </div>
+                    <div class="achievement-item">
+                        <div class="achievement-place">🥇 1º Lugar</div>
+                        <div>Certificado de Referência Estadual</div>
+                    </div>
+                    <div class="achievement-item">
+                        <div class="achievement-place">🥇 1º Lugar</div>
+                        <div>Olimpíadas DeMolay</div>
+                    </div>
+                    <div class="achievement-item">
+                        <div class="achievement-place">🥈 2º Lugar</div>
+                        <div>Desafio Estadual de Filantropia</div>
+                    </div>
+                    <div class="achievement-item">
+                        <div class="achievement-place">🥉 3º Lugar</div>
+                        <div>Desafio Nacional de Filantropia</div>
+                    </div>
+                    <div class="achievement-item">
+                        <div class="achievement-place">🏅 4º Lugar</div>
+                        <div>Desafio Ritualístico Capitular</div>
+                    </div>
+                    <div class="achievement-item">
+                        <div class="achievement-place">⭐ 6 Membros</div>
+                        <div>Qualificados no Grande Capítulo</div>
+                    </div>
+                    <div class="achievement-item">
+                        <div class="achievement-place">⭐ 3 Membros</div>
+                        <div>Qualificados no Supremo Capítulo</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Atividades Detalhadas -->
+            <div class="activities-section">
+                <div class="activity-card">
+                    <div class="activity-header">
+                        <div class="activity-icon">🎭</div>
+                        <div class="activity-title">Cerimônias</div>
+                    </div>
+                    <div class="activity-count">5</div>
+                    <div class="activity-description">
+                        • 2 Cerimônias Públicas<br>
+                        • 2 Cerimônias de Iniciação (10 iniciados)<br>
+                        • 1 Iniciação ao Grau DeMolay (7 iniciados)
+                    </div>
+                </div>
+
+                <div class="activity-card">
+                    <div class="activity-header">
+                        <div class="activity-icon">🎨</div>
+                        <div class="activity-title">Culturais/Recreativas</div>
+                    </div>
+                    <div class="activity-count">17</div>
+                    <div class="activity-description">
+                        Diversas atividades incluindo jogos online, visitas culturais, competições esportivas e confraternizações
+                    </div>
+                </div>
+
+                <div class="activity-card">
+                    <div class="activity-header">
+                        <div class="activity-icon">❤️</div>
+                        <div class="activity-title">Filantrópicas</div>
+                    </div>
+                    <div class="activity-count">13</div>
+                    <div class="activity-description">
+                        Doações para diversas instituições, campanhas de arrecadação e eventos beneficentes
+                    </div>
+                </div>
+
+                <div class="activity-card">
+                    <div class="activity-header">
+                        <div class="activity-icon">📚</div>
+                        <div class="activity-title">Educacionais</div>
+                    </div>
+                    <div class="activity-count">14</div>
+                    <div class="activity-description">
+                        • 6 Aulas do Plano Pedagógico<br>
+                        • 8 Palestras e Workshops
+                    </div>
+                </div>
+
+                <div class="activity-card">
+                    <div class="activity-header">
+                        <div class="activity-icon">🤝</div>
+                        <div class="activity-title">Relacionamento</div>
+                    </div>
+                    <div class="activity-count">17</div>
+                    <div class="activity-description">
+                        Visitas a diversos Capítulos, Bethéis e Castelos, fortalecendo os laços fraternais
+                    </div>
+                </div>
+
+                <div class="activity-card">
+                    <div class="activity-header">
+                        <div class="activity-icon">🎯</div>
+                        <div class="activity-title">Reuniões/Congressos</div>
+                    </div>
+                    <div class="activity-count">13</div>
+                    <div class="activity-description">
+                        • 10 Reuniões Ordinárias<br>
+                        • 3 Participações em Congressos
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <div class="footer-content">
+                <div class="leader-info">
+                    <strong>Mestre Conselheiro:</strong> Arthur Leão Teles
+                </div>
+                <div class="report-date">
+                    Relatório Final - Gestão 2025/1
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        // Função para simular navegação para galerias
+        function openGallery(type, title) {
+            // Simula o redirecionamento para uma página de galeria
+            // alert(`🖼️ Redirecionando para a galeria: "${title}"\n\n📁 Aqui você encontraria:\n• Fotos dos eventos\n• Vídeos dos momentos especiais\n• Documentos relacionados\n• Depoimentos dos participantes\n\n🔗 URL: /galeria/${type}`);
+            
+            // Em um cenário real, você usaria:
+            window.location.href = `galeria/${type}/${type}.html`;
+            // ou para uma SPA: history.pushState(null, '', `/galeria/${type}`);
+        }
+
+        // Adiciona eventos de clique aos cards
+        document.addEventListener('DOMContentLoaded', function() {
+            // Cards de estatísticas
+            const statCards = document.querySelectorAll('.stat-card');
+            statCards.forEach((card, index) => {
+                card.addEventListener('click', function() {
+                    const labels = ['atividades', 'iniciados', 'filantropicas', 'cerimonias'];
+                    const titles = ['Todas as Atividades', 'Novos Iniciados', 'Ações Filantrópicas', 'Cerimônias'];
+                    openGallery(labels[index], titles[index]);
+                });
+            });
+
+            // Cards de atividades
+            const activityCards = document.querySelectorAll('.activity-card');
+            const activityTypes = ['cerimonias', 'culturais', 'filantropicas', 'educacionais', 'relacionamento', 'reunioes'];
+            const activityTitles = ['Cerimônias', 'Atividades Culturais/Recreativas', 'Ações Filantrópicas', 'Atividades Educacionais', 'Relacionamento Fraternal', 'Reuniões e Congressos'];
+            
+            activityCards.forEach((card, index) => {
+                card.addEventListener('click', function() {
+                    openGallery(activityTypes[index], activityTitles[index]);
+                });
+            });
+
+            // Cards de conquistas
+            const achievementItems = document.querySelectorAll('.achievement-item');
+            const achievementTypes = ['referencia-nacional', 'referencia-estadual', 'olimpiadas', 'filantropia-estadual', 'filantropia-nacional', 'ritualistico', 'grande-capitulo', 'supremo-capitulo'];
+            const achievementTitles = ['Certificado de Referência Nacional', 'Certificado de Referência Estadual', 'Olimpíadas DeMolay', 'Desafio Estadual de Filantropia', 'Desafio Nacional de Filantropia', 'Desafio Ritualístico Capitular', 'Grande Capítulo', 'Supremo Capítulo'];
+            
+            achievementItems.forEach((item, index) => {
+                item.addEventListener('click', function() {
+                    openGallery(achievementTypes[index], achievementTitles[index]);
+                });
+            });
+        });
+    </script>
+</body>
+</html>

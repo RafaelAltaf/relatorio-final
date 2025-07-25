@@ -1,0 +1,51 @@
+[
+    {
+        "id": 1,
+        "titulo": "Cerimônia de Instalação de Oficiais",
+        "descricao": "O início de tudo! Uma cerimônia marcante em que celebramos as conquistas de 2024, e demos as boas-vindas aos novos oficiais do Capítulo Belo Horizonte. Um momento de união e renovação dos nossos compromissos.",
+        "caminho_foto": "../../fotos/cerimonias/instalacao.jpeg",
+        "data_da_atividade": "09/02/2025",
+        "icon": "🤝"
+    },
+    {
+        "id": 2,
+        "titulo": "Cerimônia Pública de Apresentação",
+        "descricao": "Grande evento aberto ao público apresentando os valores e tradições da Ordem DeMolay. Contou com a presença de familiares e convidados especiais, sendo uma oportunidade única de mostrar nosso trabalho à comunidade.",
+        "caminho_foto": null,
+        "data_da_atividade": "28/02/2025",
+        "icon": "🎪"
+    },
+    {
+        "id": 3,
+        "titulo": "Elevação ao Grau DeMolay",
+        "descricao": "Cerimônia solene de elevação de 7 irmãos ao Grau DeMolay, reconhecendo seu comprometimento e dedicação aos ideais da Ordem. Um momento de grande emoção e orgulho para todos os participantes.",
+        "caminho_foto": null,
+        "data_da_atividade": "15/03/2025",
+        "icon": "⭐"
+    },
+    {
+        "id": 4,
+        "titulo": "Instalação da Nova Gestão",
+        "descricao": "Cerimônia de instalação dos novos oficiais do Capítulo, marcando o início de uma nova era de liderança e crescimento. Um momento histórico para nossa fraternidade.",
+        "caminho_foto": null,
+        "data_da_atividade": "10/04/2025",
+        "icon": "👑"
+    },
+    {
+        "id": 5,
+        "titulo": "Segunda Iniciação do Semestre",
+        "descricao": "Mais uma bela cerimônia de iniciação, recebendo novos irmãos em nossa fraternidade. O crescimento constante do Capítulo é motivo de orgulho e demonstra a força de nossos valores.",
+        "caminho_foto": null,
+        "data_da_atividade": "25/05/2025",
+        "icon": "🤝"
+    },
+    {
+        "id": 6,
+        "titulo": "Cerimônia de Encerramento",
+        "descricao": "Grande cerimônia pública de encerramento do semestre, celebrando todas as conquistas e marcos alcançados pelo Capítulo. Uma festa da fraternidade e das amizades construídas.",
+        "caminho_foto": null,
+        "data_da_atividade": "20/06/2025",
+        "participantes": "60 participantes",
+        "icon": "🎊"
+    }
+]
