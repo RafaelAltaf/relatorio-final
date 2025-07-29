@@ -321,11 +321,7 @@
             <!-- Estatísticas Principais -->
             <div class="stats-grid">
                 <div class="stat-card">
-                    <div class="stat-number">49</div>
-                    <div class="stat-label">Atividades Realizadas</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">17</div>
+                    <div class="stat-number">10</div>
                     <div class="stat-label">Novos Iniciados</div>
                 </div>
                 <div class="stat-card">
@@ -386,9 +382,9 @@
                     </div>
                     <div class="activity-count">5</div>
                     <div class="activity-description">
-                        • 2 Cerimônias Públicas<br>
+                        • 3 Cerimônias Públicas<br>
                         • 2 Cerimônias de Iniciação (10 iniciados)<br>
-                        • 1 Iniciação ao Grau DeMolay (7 iniciados)
+                        • 1 Iniciação ao Grau DeMolay (7 iniciados ao Grau)
                     </div>
                 </div>
 
@@ -479,8 +475,8 @@
             const statCards = document.querySelectorAll('.stat-card');
             statCards.forEach((card, index) => {
                 card.addEventListener('click', function() {
-                    const labels = ['atividades', 'iniciados', 'filantropicas', 'cerimonias'];
-                    const titles = ['Todas as Atividades', 'Novos Iniciados', 'Ações Filantrópicas', 'Cerimônias'];
+                    const labels = ['iniciados', 'filantropicas', 'cerimonias'];
+                    const titles = ['Novos Iniciados', 'Ações Filantrópicas', 'Cerimônias'];
                     openGallery(labels[index], titles[index]);
                 });
             });
@@ -498,7 +494,7 @@
 
             // Cards de conquistas
             const achievementItems = document.querySelectorAll('.achievement-item');
-            const achievementTypes = ['referencia-nacional', 'referencia-estadual', 'olimpiadas', 'filantropia-estadual', 'filantropia-nacional', 'desafio-ritualistico', 'grande-capitulo', 'supremo-capitulo'];
+            const achievementTypes = ['referencia-nacional', 'referencia-estadual', 'olimpiadas', 'filantropicas', 'filantropicas', 'desafio-ritualistico', 'grande-capitulo', 'supremo-capitulo'];
             const achievementTitles = ['Certificado de Referência Nacional', 'Certificado de Referência Estadual', 'Olimpíadas DeMolay', 'Desafio Estadual de Filantropia', 'Desafio Nacional de Filantropia', 'Desafio Ritualístico Capitular', 'Grande Capítulo', 'Supremo Capítulo'];
             
             achievementItems.forEach((item, index) => {
