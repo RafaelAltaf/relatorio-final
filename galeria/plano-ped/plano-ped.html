@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Galeria - Atividades Filantrópicas | Capítulo Belo Horizonte</title>
+    <title>Galeria - Plano Pedagógico Ritualístico | Capítulo Belo Horizonte</title>
     <style>
         * {
             margin: 0;
@@ -369,14 +369,14 @@
         <div class="header">
             <button class="back-button" onclick="goBack()">← Voltar</button>
             <div class="header-content">
-                <h1>Atividades Filantrópicas</h1>
+                <h1>Plano Pedagógico Ritualístico</h1>
                 <div class="category">Capítulo Belo Horizonte - Ordem DeMolay</div>
                 <div class="stats">
                     <div class="stat-item">
-                        <strong>5 Fotos</strong>
+                        <strong>6 Fotos</strong>
                     </div>
                     <div class="stat-item">
-                        <strong>5 Eventos</strong>
+                        <strong>6 Eventos</strong>
                     </div>
                     <div class="stat-item">
                         <strong>Jan-Jun 2025</strong>
@@ -428,110 +428,132 @@
                 console.log('Usando dados de fallback (incluindo dados do JSON)...');
                 // Dados de fallback usando os dados do JSON para garantir que funcione
                 cerimonias = [
-  {
-    "id": 1,
-    "titulo": "Doação de Itens de Higiene Pessoal - INAPER",
-    "descricao": "O Capítulo doou itens de higiene pessoal ao INAPER, instituto que assiste pessoas em situação de rua, entregando papel higiênico, escovas de dente, desodorantes e aparelhos de barbear.",
-    "caminho_foto": "../../fotos/filantropicas/higiene.jpeg",
-    "data_da_atividade": "27/01/2025",
-    "icon": "🧴"
-  },
-  {
-    "id": 2,
-    "titulo": "Doação de Materiais Escolares - Creche Infantil Sagrado Coração de Jesus",
-    "descricao": "O Capítulo doou materiais escolares essenciais à Creche Infantil Sagrado Coração de Jesus, que atende crianças em vulnerabilidade social. Foram entregues 20 caixas de lápis de cor, 20 cadernos, 144 lápis pretos e 180 borrachas, garantindo os recursos para o início do ano letivo e fortalecendo o compromisso com a comunidade.",
-    "caminho_foto": "../../fotos/filantropicas/filantropia-escolares-27-01.jpeg",
-    "data_da_atividade": "09/01/2025",
-    "icon": "📚"
-  },
-  {
-    "id": 3,
-    "titulo": "Arrecadação e Doação de Livros - Ser Tão de Minas",
-    "descricao": "O Capítulo mobilizou lojas maçônicas e organizações paramaçônicas para arrecadar livros. O material, que não teve custos para o Capítulo, foi destinado à ONG 'Ser Tão de Minas'.",
-    "caminho_foto": "../../fotos/filantropicas/filantropia-doacao-livros-09-02.jpeg",
-    "data_da_atividade": "12/02/2025",
-    "icon": "📖"
-  },
-  {
-    "id": 4,
-    "titulo": "Arrastão da Caridade - A Fome Tem Pressa + Ser Tão de Minas",
-    "descricao": "No 'Arrastão da Caridade', o Capítulo arrecadou 203,25 kg de alimentos não perecíveis. Os alimentos foram distribuídos para a ONG 'A Fome tem Pressa' (152,25 kg), de forma a apoiar duas causas extremamente relevantes para a nossa cidade e país.",
-    "caminho_foto": "../../fotos/filantropicas/filantropia-arrastao-caridade-24-02.jpeg",
-    "data_da_atividade": "24/02 a 28/02/2025",
-    "icon": "🤝"
-  },
-  {
-    "id": 5,
-    "titulo": "Doação de Leite - ONG AQUEM",
-    "descricao": "O Capítulo arrecadou 64 caixas de leite, que foram o ingresso simbólico de uma peça teatral organizada pelos seus membros. Doamos as caixas à ONG AQUEM, que atende famílias em vulnerabilidade.",
-    "caminho_foto": "../../fotos/filantropicas/filantropia-leite-aquem-19-03.jpeg",
-    "data_da_atividade": "19/03/2025",
-    "icon": "🥛"
-  },
-  {
-    "id": 6,
-    "titulo": "Doação e Café da Manhã - Lar de Idosas Santa Gema Galgani",
-    "descricao": "Membros do Capítulo organizaram um café da manhã especial para as 22 idosas do Lar Santa Gema Galgani. Além de doar café, arroz e feijão, dedicaram a manhã para interagir, proporcionando um momento de alegria e atenção.",
-    "caminho_foto": "../../fotos/filantropicas/filantropia-santa-gema-29-03.webp",
-    "data_da_atividade": "29/03/2025",
-    "icon": "☕"
-  },
-  {
-    "id": 7,
-    "titulo": "Evento de Páscoa - Creche Clubinho",
-    "descricao": "Em parceria com o Bethel Joana d'Arc e os Escudeiros do Castelo Martinho de Oliveira Jr Nº415, o Capítulo celebrou a Páscoa com cerca de 60 crianças da Creche Clubinho. O evento teve café da manhã, atividades recreativas e distribuição de 70 caixas de bombons, promovendo alegria e solidariedade.",
-    "caminho_foto": "../../fotos/filantropicas/filantropia-pascoa-26-04.jpeg",
-    "data_da_atividade": "26/04/2025",
-    "icon": "🐰"
-  },
-  {
-    "id": 8,
-    "titulo": "Doação de Materiais de Limpeza - Assaumex",
-    "descricao": "Em apoio à ONG Assaumex, o Capítulo doou uma grande quantidade de materiais de limpeza e higiene. A ação, com apoio do Clube de Mães e Amigos do Capítulo, garantiu suprimentos essenciais para a manutenção de um ambiente limpo e seguro para os assistidos.",
-    "caminho_foto": "../../fotos/filantropicas/filantropia-assaumex-28-04.jpeg",
-    "data_da_atividade": "28/04/2025",
-    "icon": "🧼"
-  },
-  {
-    "id": 9,
-    "titulo": "Doação de Alimentos em Conjunto com a Maçonaria - Casa Tina",
-    "descricao": "O Capítulo e a Loja Maçônica A.R.L.S União Fraternal N° 12 doaram alimentos básicos à Casa Tina, que ampara mulheres em vulnerabilidade.",
-    "caminho_foto": "../../fotos/filantropicas/filantropia-casa-tina-17-05.jpeg",
-    "data_da_atividade": "17/05/2025",
-    "icon": "🍞"
-  },
-  {
-    "id": 10,
-    "titulo": "Doação de Ração e Manutenção de Casas de Gatos - SOS Gatinhos do Parque",
-    "descricao": "O Capítulo doou 20kg de ração para a ONG 'SOS Gatinhos do Parque' e realizou um mutirão de limpeza e manutenção de mais de 60 casinhas para felinos no Parque Municipal, melhorando o bem-estar dos animais.",
-    "caminho_foto": "../../fotos/filantropicas/gatos.jpeg",
-    "data_da_atividade": "24/05/2025",
-    "icon": "🐾"
-  },
-  {
-    "id": 11,
-    "titulo": "Arrecadação de Roupas - Ser Tão de Minas",
-    "descricao": "O Capítulo organizou uma campanha de arrecadação de roupas para a ONG 'Ser Tão de Minas', resultando na coleta de seis grandes sacolas com itens variados para comunidades com baixo IDH, fortalecendo a parceria e a ajuda.",
-    "caminho_foto": "../../fotos/filantropicas/filantropia-roupas-13-06.jpeg",
-    "data_da_atividade": "13/06/2025",
-    "icon": "🧥"
-  },
-  {
-    "id": 12,
-    "titulo": "Campanha de Doação de Sangue 'Irmão Sangue Bom'",
-    "descricao": "Durante o mês de Junho, o Capítulo promoveu a campanha 'Irmão Sangue Bom' para incentivar a doação de sangue ao Hemominas. A campanha se extendeu do dia 01/06 até o dia 30/06, e mobilizou membros e a comunidade maçônica, reforçando a importância cívica de salvar vidas.",
-    "caminho_foto": "../../fotos/filantropicas/filantropia-sangue-01-06.jpeg",
-    "data_da_atividade": "01/06/2025 a 30/06/2025",
-    "icon": "🩸"
-  },
-  {
-    "id": 13,
-    "titulo": "Evento de Valorização à Mulher - Instituto Padre Olavo",
-    "descricao": "Em parceria com A.R.L.S. Novos Confidentes e o Capítulo Estrela do Oriente, o Capítulo Belo Horizonte organizou um evento para mulheres do Instituto Padre Olavo. O evento incluiu um workshop de saúde e autocuidado, distribuição de 30 kits femininos para 20 participantes, visando fortalecer autoestima das mulheres.",
-    "caminho_foto": "../../fotos/filantropicas/filantropia-mulheres-28-06.jpeg",
-    "data_da_atividade": "28/06/2025",
-    "icon": "🌸"
-  }
+    {
+        "id": 1,
+        "titulo": "Plano Pedagógico - Curiosidades Ritualísticas",
+        "descricao": "Momento de aprendizado sobre curiosidades do ritual DeMolay, promovendo maior conhecimento das tradições ritualísticas que adotamos.",
+        "caminho_foto": "../../fotos/educacionais/curiosidades-ritualisticas.jpeg",
+        "data_da_atividade": "23/01/2025",
+        "Apresentador": "Rafael Altaf dos Santos",
+        "icon": "📜"
+    },
+    {
+        "id": 2,
+        "titulo": "Plano Pedagógico - Código de Ética + Código de Cultura do Capítulo Belo Horizonte Nº12",
+        "descricao": "Estudo e debate sobre o Código de Ética e o Código de Cultura do Capítulo Belo Horizonte, reforçando nossos princípios.",
+        "caminho_foto": "../../fotos/educacionais/codigo-etica.jpeg",
+        "data_da_atividade": "21/02/2025",
+        "Apresentador": "Luis Fernando",
+        "icon": "📘"
+    },
+    {
+        "id": 3,
+        "titulo": "Plano Pedagógico - Cargos Ritualísticos, suas Funções e Simbolismo",
+        "descricao": "Explicação detalhada sobre os cargos ritualísticos, suas atribuições e significados simbólicos.",
+        "caminho_foto": "../../fotos/educacionais/cargos-ritualisticos.jpeg",
+        "data_da_atividade": "21/03/2025",
+        "Apresentador": "Marcos Paulo",
+        "icon": "🏛️"
+    },
+    {
+        "id": 4,
+        "titulo": "Plano Pedagógico - Cerimônia de Iniciação",
+        "descricao": "Atividade educativa explicando a importância e os valores transmitidos na cerimônia de Grau DeMolay.",
+        "caminho_foto": "../../fotos/educacionais/iniciacao.jpeg",
+        "data_da_atividade": "23/04/2025",
+        "Apresentador": "Marcos Paulo",
+        "icon": "🤝"
+    },
+    {
+        "id": 5,
+        "titulo": "Plano Pedagógico - O Ritual e seu Simbolismo",
+        "descricao": "Estudo sobre os símbolos e significados presentes no ritual da Ordem DeMolay.",
+        "caminho_foto": "../../fotos/educacionais/ritual-simbolismo.jpeg",
+        "data_da_atividade": "23/05/2025",
+        "Apresentador": "Marcelio Gabriel",
+        "icon": "🔍"
+    },
+    {
+        "id": 6,
+        "titulo": "Plano Pedagógico - Cerimônia de Iniciação ao Grau DeMolay",
+        "descricao": "Atividade educativa explicando a importância e os valores transmitidos na cerimônia de Grau DeMolay.",
+        "caminho_foto": "../../fotos/educacionais/iniciacao-grau-demolay.jpeg",
+        "data_da_atividade": "19/06/2025",
+        "Apresentador": "Marcos Paulo e Matheus Bandiera",
+        "icon": "👑"
+    },
+    {
+        "id": 7,
+        "titulo": "Palestra - Gestão de Resíduos",
+        "descricao": "Palestra sobre práticas responsáveis na gestão de resíduos e seu impacto ambiental.",
+        "caminho_foto": "../../fotos/educacionais/gestao-residuos.jpeg",
+        "data_da_atividade": "15/01/2025",
+        "Apresentador": "Leandro Nonato",
+        "icon": "♻️"
+    },
+    {
+        "id": 8,
+        "titulo": "Palestra - Objetivos Sustentáveis da ONU",
+        "descricao": "Apresentação sobre os Objetivos de Desenvolvimento Sustentável da ONU e sua relevância para a sociedade.",
+        "caminho_foto": "../../fotos/educacionais/ods-onu.jpeg",
+        "data_da_atividade": "29/01/2025",
+        "Apresentador": "----------", //revisar nome
+        "icon": "🌍"
+    },
+    {
+        "id": 9,
+        "titulo": "Palestra - Inteligência Artificial e o Meio Ambiente",
+        "descricao": "Discussão sobre como a inteligência artificial pode contribuir para práticas mais sustentáveis.",
+        "caminho_foto": "../../fotos/educacionais/ia-meio-ambiente.jpeg",
+        "data_da_atividade": "09/04/2025",
+        "Apresentador": "Rafael Altaf dos Santos",
+        "icon": "🤖"
+    },
+    {
+        "id": 10,
+        "titulo": "BHTalks - Desenvolvedor Sem Fronteiras: O Caminho para uma Carreira Global em Tecnologia",
+        "descricao": "Bate-papo sobre carreira internacional na área de tecnologia, com dicas e experiências práticas.",
+        "caminho_foto": "../../fotos/educacionais/dev-global.jpeg",
+        "data_da_atividade": "06/03/2025",
+        "Apresentador": "Tio Pedro Barros",
+        "icon": "💻"
+    },
+    {
+        "id": 11,
+        "titulo": "Palestra - Sustentabilidade em Tempos de Crise",
+        "descricao": "Reflexão sobre a importância da sustentabilidade mesmo diante de desafios econômicos e sociais.",
+        "caminho_foto": "../../fotos/educacionais/sustentabilidade-crise.jpeg",
+        "data_da_atividade": "19/03/2025",
+        "Apresentador": "-------", //revisar nome
+        "icon": "🌱"
+    },
+    {
+        "id": 12,
+        "titulo": "Workshop - Introdução à Programação",
+        "descricao": "Atividade prática para introduzir conceitos fundamentais de programação para iniciantes.",
+        "caminho_foto": "../../fotos/educacionais/workshop-programacao.jpeg",
+        "data_da_atividade": "12/05/2025",
+        "Apresentador": "Arthur Leão Teles",
+        "icon": "🖥️"
+    },
+    {
+        "id": 13,
+        "titulo": "BHTalks - Uma Reflexão sobre as Relações entre a Ordem DeMolay e Religião",
+        "descricao": "Debate sobre a relação da Ordem DeMolay com diferentes perspectivas religiosas.",
+        "caminho_foto": "../../fotos/educacionais/relacao-religiao.jpeg",
+        "data_da_atividade": "24/04/2025",
+        "Apresentador": "Tio Luigi", //pegar nome completo
+        "icon": "🙏"
+    },
+    {
+        "id": 14,
+        "titulo": "Palestra - Nossa Postura em Frente ao Meio Ambiente",
+        "descricao": "Conversa sobre atitudes individuais e coletivas para preservar o meio ambiente.",
+        "caminho_foto": "../../fotos/educacionais/postura-meio-ambiente.jpeg",
+        "data_da_atividade": "17/06/2025",
+        "Apresentador": "Samuel Henrique Giarola",
+        "icon": "🌿"
+    }
 ]
 
 
@@ -561,8 +583,8 @@
                     <div class="photo-placeholder">${conteudoFoto}</div>
                     <div class="photo-overlay">
                         <div class="overlay-info">
+                            <div class="photo-apresentador">${cerimonia.Apresentador || 'Apresentador não informado'}</div>
                             <div class="photo-date">${formatarData(cerimonia.data_da_atividade)}</div>
-                            ${cerimonia.participantes ? `<div class="photo-participants">${cerimonia.participantes}</div>` : ''}
                         </div>
                     </div>
                 </div>
