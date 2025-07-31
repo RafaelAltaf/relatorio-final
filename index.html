@@ -307,6 +307,167 @@
                 gap: 10px;
             }
         }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.8);
+            backdrop-filter: blur(5px);
+        }
+
+        .modal-content {
+            position: relative;
+            background-color: white;
+            margin: 5% auto;
+            padding: 0;
+            border-radius: 20px;
+            width: 90%;
+            max-width: 800px;
+            max-height: 80%;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            animation: modalSlideIn 0.3s ease-out;
+        }
+
+        @keyframes modalSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-50px) scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .modal-header {
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+            padding: 20px 30px;
+            position: relative;
+        }
+
+        .modal-title {
+            font-size: 1.5em;
+            margin: 0;
+        }
+
+        .modal-subtitle {
+            font-size: 1em;
+            opacity: 0.9;
+            margin-top: 5px;
+        }
+
+        .close-modal {
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255,255,255,0.2);
+            border: none;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.5em;
+            transition: all 0.3s ease;
+        }
+
+        .close-modal:hover {
+            background: rgba(255,255,255,0.3);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .modal-body {
+            padding: 30px;
+            max-height: 500px;
+            overflow-y: auto;
+        }
+
+        .modal-image {
+            width: 100%;
+            height: 300px;
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            font-size: 4em;
+            color: #3498db;
+        }
+
+        .modal-description {
+            font-size: 1.1em;
+            line-height: 1.6;
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+
+        .modal-details {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #3498db;
+        }
+
+        .modal-details h4 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .modal-details ul {
+            list-style-position: inside;
+            color: #666;
+        }
+
+        .modal-details li {
+            margin-bottom: 5px;
+        }
+
+        .modal-details li a {
+            color: #3498db;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .modal-details li a:hover {
+            color: #2980b9;
+            text-decoration: underline;
+            transform: translateX(3px);
+        }
+
+        @media (max-width: 768px) {
+            .modal-content {
+                width: 95%;
+                margin: 10% auto;
+            }
+            
+            .modal-header {
+                padding: 15px 20px;
+            }
+            
+            .modal-title {
+                font-size: 1.2em;
+            }
+            
+            .modal-body {
+                padding: 20px;
+            }
+            
+            .modal-image {
+                height: 200px;
+                font-size: 3em;
+            }
+        }
     </style>
 </head>
 <body>
@@ -319,7 +480,7 @@
 
         <div class="main-content">
             <!-- Estatísticas Principais -->
-            <!-- <div class="stats-grid">
+            <div class="stats-grid">
                 <div class="stat-card">
                     <div class="stat-number">10</div>
                     <div class="stat-label">Novos Iniciados</div>
@@ -332,7 +493,7 @@
                     <div class="stat-number">5</div>
                     <div class="stat-label">Cerimônias</div>
                 </div>
-            </div> -->
+            </div>
 
             <!-- Conquistas e Destaques -->
             <div class="achievements-section">
@@ -359,6 +520,10 @@
                         <div>Desafio Nacional de Filantropia</div>
                     </div>
                     <div class="achievement-item">
+                        <div class="achievement-place">🥉 3º Lugar</div>
+                        <div>Irmão Sangue Bom</div>
+                    </div>
+                    <div class="achievement-item">
                         <div class="achievement-place">🏅 4º Lugar</div>
                         <div>Desafio Ritualístico Capitular</div>
                     </div>
@@ -380,7 +545,7 @@
                         <div class="activity-icon">🎭</div>
                         <div class="activity-title">Cerimônias</div>
                     </div>
-                    <div class="activity-count">6</div>
+                    <div class="activity-count">5</div>
                     <div class="activity-description">
                         • 3 Cerimônias Públicas<br>
                         • 2 Cerimônias de Iniciação (10 iniciados)<br>
@@ -458,15 +623,185 @@
             </div>
         </div>
     </div>
+
+    <!-- Modal para Conquistas -->
+    <div id="achievementModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title" id="modalTitle">Título da Conquista</h2>
+                <div class="modal-subtitle" id="modalSubtitle">Capítulo Belo Horizonte</div>
+                <button class="close-modal" onclick="closeModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-image" id="modalImage">🏆</div>
+                <div class="modal-description" id="modalDescription">
+                    Descrição detalhada da conquista...
+                </div>
+                <div class="modal-details" id="modalDetails">
+                    <h4>Detalhes da Conquista</h4>
+                    <ul id="modalDetailsList">
+                        <li>Informação adicional...</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script>
-        // Função para simular navegação para galerias
-        function openGallery(type, title) {
-            // Simula o redirecionamento para uma página de galeria
-            // alert(`🖼️ Redirecionando para a galeria: "${title}"\n\n📁 Aqui você encontraria:\n• Fotos dos eventos\n• Vídeos dos momentos especiais\n• Documentos relacionados\n• Depoimentos dos participantes\n\n🔗 URL: /galeria/${type}`);
+        // Dados das conquistas para os modais
+        const achievementsData = {
+            'referencia-nacional': {
+                title: 'Certificado de Referência Nacional',
+                icon: '🏆',
+                description: 'Conquista do Certificado de Referência Nacional, reconhecendo o Capítulo Belo Horizonte como o melhor Capítulo do país!',
+                details: [
+                    'Avaliação rigorosa em múltiplos critérios',
+                    'Gestão de excelência sobre grande pressão',
+                    'Participação ativa em várias campanhas nacionais',
+                    'Maior impacto em nossos membros e na sociedade',
+                    'Crescimento do Capítulo'
+                ]
+            },
+            'referencia-estadual': {
+                title: 'Certificado de Referência Estadual',
+                icon: '🥇',
+                description: 'Reconhecimento como Capítulo de Referência Estadual, destacando-se entre todos os capítulos de Minas Gerais pela excelência em suas atividades.',
+                details: [
+                    'O melhor Capítulo de Minas Gerais!',
+                    'Destaque em projetos comunitários',
+                    'Exemplar organização administrativa'
+                ]
+            },
+            'olimpiadas': {
+                title: 'Olimpíadas DeMolay - 1º Lugar',
+                icon: '🏅',
+                description: 'Vitória nas Olimpíadas DeMolay, demonstrando superioridade em conhecimento ritualístico, trabalhos em equipe e competições esportivas.',
+                details: [
+                    'Primeira colocação geral',
+                    'Destaque em provas de conhecimento sobre a história e a ritualística de nossa Ordem',
+                    'Trabalho em equipe exemplar'
+                ]
+            },
+            'filantropia-estadual': {
+                title: 'Desafio Estadual de Filantropia - 2º Lugar',
+                icon: '🥈',
+                description: 'Segunda colocação no Desafio Estadual de Filantropia, reconhecendo o comprometimento social e as ações beneficentes realizadas em prol do estado de Minas Gerais.',
+                details: [
+                    'Impacto significativo na comunidade',
+                    'Parcerias com instituições locais',
+                    'Envolvimento de todos os membros',
+                    'Transparência nas ações realizadas'
+                ]
+            },
+            'filantropia-nacional': {
+                title: 'Desafio Nacional de Filantropia - 3º Lugar',
+                icon: '🥉',
+                description: 'Terceira colocação no Desafio Nacional de Filantropia, posicionando o capítulo entre os melhores do país em ações sociais.',
+                details: [
+                    'Competição em nível nacional',
+                    'Projetos bem planejados de impacto social',
+                    'Mobilização da comunidade local',
+                    'Resultados mensuráveis das ações',
+                    'Reconhecimento nacional das atividades'
+                ]
+            },
+            'irmao-sangue-bom': {
+                title: 'Desafio Irmão Sangue Bom - 3º Lugar',
+                icon: '🥉',
+                description: 'Terceira colocação no Desafio Irmão Sangue Bom, campanha dedicada a mobilizar doações de sangue através dos Capítulos DeMolay.',
+                details: [
+                    '49 doações realizadas em Belo Horizonte',
+                    'Parceria com Lojas e outras paramaçonicas',
+                    'Mobilização da comunidade local',
+                    'Reconhecimento nacional da atividade'
+                ]
+            },
+            'desafio-ritualistico': {
+                title: 'Desafio Ritualístico Capitular - 4º Lugar',
+                icon: '🎖️',
+                description: 'Quarta colocação no Desafio Ritualístico Capitular, campanha em que desenvolvemos vários projetos diferentes sobre um dos temas elencados abaixo:',
+                details: [
+                    'Documentário sobre a história da Ordem DeMolay|https://youtu.be/exemplo1',
+                    'Programa de rádio sobre a importância da Ritualística|https://soundcloud.com/exemplo2',
+                    'Apresentação interativa que mostra a história do Capítulo Belo Horizonte através de seu estandarte|https://view.genially.com/681ffd51edd8c9a0076aae94/interactive-image-capitulo-belo-horizonte',
+                    'Sessão de RPG autoral sobre a busca pelo Santo Graal, de forma a simbolizar o companheirismo|https://docs.google.com/document/d/1TtqECrbYvgD6zJhsH2XDXzsTrbN7_MHBSZoBhSBWS4I/edit?usp=sharing',
+                    'VLOG da viagem ao CEOD - Ipatinga, com o objetivo de mostrar o que é ser um DeMolay|https://youtu.be/exemplo5'
+                ]
+            },
+            'grande-capitulo': {
+                title: 'Grande Capítulo - 6 Membros Qualificados',
+                icon: 'fotos/grande-capitulo/grande_capitulo.jpeg',
+                description: 'Seis membros do capítulo conquistaram a qualificação para participar do Grande Capítulo, mostrando excelência na prática ritualística de seus cargos.',
+                details: [
+                    'Arthur Leão Teles - Mestre Conselheiro',
+                    'Rafael Altaf dos Santos - Segundo Conselheiro',
+                    'Marcelio Gabriel - Primeiro Diácono',
+                    'Arthur Duarte - Hospitaleiro',
+                    'Bruno Oliveira - Terceiro Preceptor',
+                    'Davi Balarini - Sexto Preceptor',
+                ]
+            },
+            'supremo-capitulo': {
+                title: 'Supremo Capítulo - 3 Membros Qualificados',
+                icon: 'fotos/supremo-capitulo/supremo-capitulo.jpeg',
+                description: 'Três membros alcançaram a qualificação para o Supremo Capítulo, a mais alta distinção possível na Ordem DeMolay nacional.',
+                details: [
+                    'Arthur Leão Teles - Segundo Conselheiro',
+                    'Guilherme Oliveira - Primeiro Mordomo',
+                    'Marcelio Gabriel - Porta Bandeira'
+                ]
+            }
+        };
+
+        // Função para abrir modal de conquista
+        function openAchievementModal(type) {
+            const data = achievementsData[type];
+            if (!data) return;
+
+            document.getElementById('modalTitle').textContent = data.title;
             
-            // Em um cenário real, você usaria:
+            // Verificar se o ícone é uma imagem ou emoji
+            const modalImageElement = document.getElementById('modalImage');
+            if (data.icon.includes('.jpeg') || data.icon.includes('.jpg') || data.icon.includes('.png') || data.icon.includes('.webp')) {
+                // É uma imagem - criar elemento img
+                modalImageElement.innerHTML = `<img src="${data.icon}" alt="${data.title}" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px;">`;
+            } else {
+                // É um emoji - usar como texto
+                modalImageElement.innerHTML = data.icon;
+            }
+            
+            document.getElementById('modalDescription').textContent = data.description;
+            
+            const detailsList = document.getElementById('modalDetailsList');
+            detailsList.innerHTML = '';
+            data.details.forEach(detail => {
+                const li = document.createElement('li');
+                
+                // Verificar se o detalhe contém um link (formato: "texto|url")
+                if (detail.includes('|')) {
+                    const [text, url] = detail.split('|');
+                    li.innerHTML = `<a href="${url}" target="_blank" rel="noopener noreferrer" style="color: #3498db; text-decoration: none; font-weight: 500;">${text} 🔗</a>`;
+                    li.style.cursor = 'pointer';
+                } else {
+                    li.textContent = detail;
+                }
+                
+                detailsList.appendChild(li);
+            });
+
+            document.getElementById('achievementModal').style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        // Função para fechar modal
+        function closeModal() {
+            document.getElementById('achievementModal').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Função para simular navegação para galerias (para stats e activities)
+        function openGallery(type, title) {
             window.location.href = `galeria/${type}/${type}.html`;
-            // ou para uma SPA: history.pushState(null, '', `/galeria/${type}`);
         }
 
         // Adiciona eventos de clique aos cards
@@ -492,15 +827,28 @@
                 });
             });
 
-            // Cards de conquistas
+            // Cards de conquistas - AGORA ABREM MODAIS
             const achievementItems = document.querySelectorAll('.achievement-item');
-            const achievementTypes = ['referencia-nacional', 'referencia-estadual', 'olimpiadas', 'filantropicas', 'filantropicas', 'desafio-ritualistico', 'grande-capitulo', 'supremo-capitulo'];
-            const achievementTitles = ['Certificado de Referência Nacional', 'Certificado de Referência Estadual', 'Olimpíadas DeMolay', 'Desafio Estadual de Filantropia', 'Desafio Nacional de Filantropia', 'Desafio Ritualístico Capifilantropia-nacionaltular', 'Grande Capítulo', 'Supremo Capítulo'];
+            const achievementTypes = ['referencia-nacional', 'referencia-estadual', 'olimpiadas', 'filantropia-estadual', 'filantropia-nacional', 'irmao-sangue-bom', 'desafio-ritualistico', 'grande-capitulo', 'supremo-capitulo'];
             
             achievementItems.forEach((item, index) => {
                 item.addEventListener('click', function() {
-                    openGallery(achievementTypes[index], achievementTitles[index]);
+                    openAchievementModal(achievementTypes[index]);
                 });
+            });
+
+            // Fechar modal clicando fora do conteúdo
+            document.getElementById('achievementModal').addEventListener('click', function(e) {
+                if (e.target === this) {
+                    closeModal();
+                }
+            });
+
+            // Fechar modal com tecla ESC
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    closeModal();
+                }
             });
         });
     </script>
